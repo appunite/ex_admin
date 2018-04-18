@@ -59,4 +59,7 @@ defmodule ExAdminTest.Render do
     assert String.starts_with?(result, "2016-05-24 ")
     assert String.ends_with?(result, ":26:08")
   end
+  test "Geo Point" do
+    assert Render.to_string(%Geo.Point{coordinates: {22.33, 33.45}, srid: 4321}) == "22.33, 33.45"
+  end  
 end

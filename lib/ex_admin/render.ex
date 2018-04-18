@@ -103,6 +103,13 @@ defimpl ExAdmin.Render, for: NaiveDateTime do
   end
 end
 
+defimpl ExAdmin.Render, for: Geo.Point do
+  def to_string(data) do
+    %Geo.Point{coordinates: {lat, long}, srid: srid} = data
+    "#{lat}, #{long}"
+  end
+end
+
 # defimpl ExAdmin.Render, for: Any do
 #   def to_string(data), do: "#{inspect data}"
 # end
